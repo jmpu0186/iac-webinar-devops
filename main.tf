@@ -46,7 +46,7 @@ resource "google_compute_instance" "default" {
         inline = [
           "sudo firewall-cmd --permanent --add-port=8080/tcp",
           "sudo firewall-cmd --reload",
-		  "sudo yum update curl --disablerepo=epel"
+		  "sudo yum update curl --disablerepo=epel",
           "sudo yum -y install git ansible",
           "sudo yum install python-pip -y",
           "sudo pip install python-jenkins",
