@@ -46,15 +46,14 @@ resource "google_compute_instance" "default" {
         inline = [
           "sudo firewall-cmd --permanent --add-port=8080/tcp",
           "sudo firewall-cmd --reload",
-		  "sudo yum update curl --disablerepo=epel",
-          "sudo yum -y install git ansible",
+		  "sudo yum -y install git ansible",
           "sudo yum install python-pip -y",
           "sudo pip install python-jenkins",
-          "git clone https://github.com/jmpu0186/iac-webinar-devops.git",
-		  "sudo ansible-playbook iac-webinar-devops/docker-installation/docker.yml",
+          "git clone https://github.com/jmpu0186/ansible-jenkins-devops-webinar.git",
+		  "sudo ansible-playbook ansible-jenkins-devops-webinar/docker-installation/docker.yml",
 		  "sudo chmod 777 /var/run/docker.sock",
-		  "sudo ansible-playbook iac-webinar-devops/jenkins-installation/jenkins.yml",
-          "sudo ansible-playbook iac-webinar-devops/jenkins-installation/jobs.yml"
+		  "sudo ansible-playbook ansible-jenkins-devops-webinar/jenkins-installation/jenkins.yml",
+          "sudo ansible-playbook ansible-jenkins-devops-webinar/jenkins-installation/jobs.yml"
         ]
 
       }
