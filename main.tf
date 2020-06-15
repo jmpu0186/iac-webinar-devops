@@ -50,6 +50,8 @@ resource "google_compute_instance" "default" {
           "sudo yum install python-pip -y",
           "sudo pip install python-jenkins",
           "git clone https://github.com/jmpu0186/ansible-jenkins-devops-webinar.git",
+		  "sudo ansible-galaxy install geerlingguy.java",
+		  "sudo ansible-galaxy install geerlingguy.jenkins",
 		  "sudo ansible-playbook ansible-jenkins-devops-webinar/docker-installation/docker.yml",
 		  "sudo chmod 777 /var/run/docker.sock",
 		  "sudo ansible-playbook ansible-jenkins-devops-webinar/jenkins-installation/jenkins.yml",
