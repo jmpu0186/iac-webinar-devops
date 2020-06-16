@@ -45,6 +45,7 @@ resource "google_compute_instance" "default" {
         }
         inline = [
           "sudo firewall-cmd --permanent --add-port=8080/tcp",
+		  "sudo firewall-cmd --permanent --add-port=80/tcp",
           "sudo firewall-cmd --reload",
 		  "sudo yum -y install git ansible",
           "sudo yum install python-pip -y",
